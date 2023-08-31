@@ -14,8 +14,6 @@
 
 // Execute `rustlings hint hashmaps3` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 use std::collections::HashMap;
 
 // A structure to store team name and its goal details.
@@ -40,6 +38,52 @@ fn build_scores_table(results: String) -> HashMap<String, Team> {
         // will be the number of goals conceded from team_2, and similarly
         // goals scored by team_2 will be the number of goals conceded by
         // team_1.
+
+        let t1 = Team {
+            name: team_1_name.clone(),
+            goals_scored: team_1_score,
+            goals_conceded: team_2_score,
+        };
+
+        let t2 = Team {
+            name: team_2_name.clone(),
+            goals_scored: team_2_score,
+            goals_conceded: team_1_score,
+        };
+
+        if !scores.contains_key(&team_1_name) {
+            scores.insert(t1.name.clone(), t1);
+        } else {
+            let team1_prev = scores.get(&team_1_name).unwrap();
+
+            let new_goals_scored = team1_prev.goals_scored + t1.goals_scored;
+            let new_goals_conceded = team1_prev.goals_conceded + t1.goals_conceded;
+            scores.insert(
+                t1.name.clone(),
+                Team {
+                    name: team_1_name.clone(),
+                    goals_scored: new_goals_scored,
+                    goals_conceded: new_goals_conceded,
+                },
+            );
+        }
+
+        if !scores.contains_key(&team_2_name) {
+            scores.insert(t2.name.clone(), t2);
+        } else {
+            let team2_prev = scores.get(&team_2_name).unwrap();
+
+            let new_goals_scored = team2_prev.goals_scored + t2.goals_scored;
+            let new_goals_conceded = team2_prev.goals_conceded + t2.goals_conceded;
+            scores.insert(
+                t2.name.clone(),
+                Team {
+                    name: team_2_name.clone(),
+                    goals_scored: new_goals_scored,
+                    goals_conceded: new_goals_conceded,
+                },
+            );
+        }
     }
     scores
 }
