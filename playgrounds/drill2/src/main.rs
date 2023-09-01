@@ -19,6 +19,6 @@ fn main() {
     let invalid_str = str_upper_match(vec![197, 198]);
     println!("invalid_str:{:?}", invalid_str);
 
-    let valid_str = str_upper_concise(vec![121, 97, 89]);
+    let valid_str = str_upper_concise(vec![197, 198]);
     println!("valid_str:{:?}", valid_str);
 }
