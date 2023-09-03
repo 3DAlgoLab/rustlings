@@ -1,27 +1,28 @@
 // Ref: https://fasterthanli.me/articles/a-half-hour-to-learn-rust
 
+
+fn make_string_dangle()->&String {
+    let s = String::from("hello");
+    &s
+}
+
 fn main() {
-    // let wrapped = Some(2);
-    // let empty: Option<i32> = None;
-    // println!("wrapped: {:?}", wrapped);
-    // println!("empty: {:?}", empty);
+    // Work!
+    let x = 50;
+    let _y = x;
+    println!("x: {}", x);
 
-    // let r1 = Ok(64);
-    // let r2 = Err("oh no!");
+    // Not work!
+    // let s = String::from("hello");
+    // let t = s;
+    // println!("t: {}", t);
+    // println!("s: {}", s);
 
-    // let x = vec![1, 2, 3, 4, 5, 6, 7, 8];
-    // x.iter().for_each(|i| println!("{}", i));
-    // let z = x.iter().map(|x| x+ 3).fold(0, |x, y| x+y);
-    // dbg!(z);
-
-    let x = "out";
+    let s = String::from("hello");
     {
-        let x = "in";
-        println!("inner x: {}", x);
+        let t = &s;
+        println!("t: {}", t);
     }
-    println!("outer x: {}", x);
-    let x = 42;
-    println!("outer x: {}", x);
-    let x = { 100 };
-    println!("outer x: {}", x);
+    println!("s: {}", s);
+    println!("s: {}", make_string_dangle());
 }
