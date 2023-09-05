@@ -66,10 +66,10 @@ mod test {
     #[test]
     fn test_under_5() {
         let is_ok_res = check_under_five(6);
-        dbg!(is_ok_res);
+        // dbg!(is_ok_res);
 
         let is_ok_res = check_under_five(4);
-        dbg!(is_ok_res);
+        // dbg!(is_ok_res);
     }
 
     #[test]
