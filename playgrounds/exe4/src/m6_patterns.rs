@@ -7,7 +7,7 @@ enum Message {
     Write(String),
 }
 
-fn process_message(msg: Message) {
+fn _process_message(msg: Message) {
     match msg {
         Message::Quit => {
             println!("I'm quit")
@@ -25,6 +25,7 @@ fn process_message(msg: Message) {
 }
 
 #[cfg(test)]
+#[allow(unused)]
 mod test {
 
     use super::*;
@@ -45,7 +46,7 @@ mod test {
     fn test_match_option() {
         let some_num = Some(10);
         // let some_num = None;
-        let prob_none: Option<i32> = None;
+        // let prob_none: Option<i32> = None;
 
         // let r = match some_num {
         //     Some(i) => i,
@@ -66,7 +67,7 @@ mod test {
     #[test]
     fn tests_match_result() {
         let some_res: Result<i32, &str> = Ok(50);
-        let some_err: Result<i32, &str> = Err("There was a problem");
+        let _some_err: Result<i32, &str> = Err("There was a problem");
         let r = match some_res {
             Ok(val) => val,
             Err(e) => panic!("{}", e),
@@ -78,7 +79,7 @@ mod test {
     #[test]
     fn tests_match_result2() {
         let some_res: Result<i32, &str> = Ok(50);
-        let some_err: Result<i32, &str> = Err("There was a problem");
+        let _some_err: Result<i32, &str> = Err("There was a problem");
 
         let result = if let Ok(r) = some_res {
             r
@@ -92,13 +93,13 @@ mod test {
     #[test]
     fn test_match_msg() {
         let my_enum = Message::Quit;
-        process_message(my_enum);
+        _process_message(my_enum);
 
         let my_msg = Message::Move { x: 10, y: 20 };
-        process_message(my_msg);
+        _process_message(my_msg);
 
         let my_msg2 = Message::ChangeColor(10, 20, 30);
-        process_message(my_msg2);
+        _process_message(my_msg2);
     }
 
     #[test]

@@ -1,4 +1,5 @@
 #[derive(Debug)]
+#[allow(dead_code)]
 struct User {
     username: String,
     email: String,
@@ -6,6 +7,7 @@ struct User {
     active: bool,
 }
 
+#[allow(dead_code)]
 impl User {
     fn incremet_sining_count(&mut self) {
         self.sign_in_count += 1;

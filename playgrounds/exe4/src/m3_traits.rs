@@ -4,6 +4,7 @@ trait Attacker {
 }
 
 #[derive(Debug)]
+#[allow(unused)]
 enum Character {
     Warrior,
     Archer,
@@ -33,6 +34,4 @@ mod test {
         let chosen_style = my_character.choose_style();
         dbg!(chosen_style);
     }
-
-    
 }
