@@ -24,7 +24,7 @@ mod test {
         }
     }
 
-    fn get_ethereum_data<T: EthereumAddress>(address: T) -> Address {
+    fn _get_ethereum_data<T: EthereumAddress>(address: T) -> Address {
         let converted_address = address.convert_address().unwrap();
         converted_address
     }
