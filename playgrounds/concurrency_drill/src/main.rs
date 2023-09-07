@@ -5,7 +5,6 @@ use std::sync::{Arc, Mutex};
 use std::thread;
 
 fn main() {
-    println!("Hello, world!");
     let file_mutex = Arc::new(Mutex::new(
         OpenOptions::new()
             .append(true)
@@ -17,7 +16,7 @@ fn main() {
 
     let mut handles = vec![];
 
-    for i in 0..16 {
+    for i in 0..10 {
         let file_mutex = Arc::clone(&file_mutex);
         let handle = thread::spawn(move || {
             let mut file = file_mutex.lock().unwrap();
